@@ -8,13 +8,13 @@ public virtual with sharing class Person {
     public Integer phone{
         get;
         set;}
-    public String address{
+    public Address address{
         get;
         set;}
 
     public Person(){}
 
-    public Person(String name, String email, Integer phone, String address){
+    public Person(String name, String email, Integer phone, Address address){
         this.name = name;
         this.email = email;
         this.phone = phone;
