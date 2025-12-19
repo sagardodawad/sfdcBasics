@@ -17,15 +17,15 @@ public with sharing class PremiumCalculation {
            if(EmploymentType=='Temporary Job'){
                if(serviceYear<5) premium=AnnualIncome*0.02;
                else premium=AnnualIncome*0.018;
-           }else{
+           }else if(EmploymentType=='Permanent Job'){
                 if(serviceYear<5) premium=AnnualIncome*0.015;
                 else premium=AnnualIncome*0.013;
             }
-       }else{
+       }else if(MaritalStatus=='Unmarried'){
               if(EmploymentType=='Temporary Job'){
                 if(serviceYear<5) premium=100000;
                 else premium=AnnualIncome*0.022+100000;
-              }else{
+              }else if(EmploymentType=='Permanent Job'){
                  if(serviceYear<5) premium=AnnualIncome*0.01;
                  else premium=AnnualIncome*0.008;
                 }
