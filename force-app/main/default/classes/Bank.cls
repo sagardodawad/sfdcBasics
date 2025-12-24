@@ -24,8 +24,8 @@ public class Bank implements IBankServiceProvider {
     public Boolean deposit(Integer accountNumber, Double amount) {
         BankAccount account = getAccountByNumber(accountNumber);
         if(account == null) {
-            System.debug('Account not found');
-            return false;
+            // System.debug('Account not found');
+            throw new InvalidAccountException('Account Number '+accountNumber+' is invalid.');
         }
         account.balance += amount;
 
@@ -37,12 +37,10 @@ public class Bank implements IBankServiceProvider {
     public Boolean withdraw(Integer accountNumber, Double amount) {
         BankAccount account = getAccountByNumber(accountNumber);
         if(account == null) {
-            System.debug('Account not found');
-            return false;
+            throw new InvalidAccountException('Account Number '+accountNumber+' is invalid.');
         }
         if(account.balance < amount) {
-            System.debug('Insufficient balance');
-            return false;
+            throw new InsufficientBalanceException('Insufficient balance in account '+accountNumber);
         }
         account.balance -= amount;
 

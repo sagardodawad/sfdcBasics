@@ -78,43 +78,68 @@
 // System.debug('Bank Details: '+sbi);
 
 // System.debug('Deposit Operation: ' + sbi.deposit(1001, 2000));
+
 // System.debug('Withdraw Operation: ' + sbi.withdraw(1002, 1000));
+
 // System.debug('Transfer Operation: ' + sbi.transfer(1001, 1002, 500));
 
 
 // MapDemo.main();
 
 
-Store store=new Store(
-    1,
-    'Tech Store',
-    'Downtown',
-    new List<Product>{
-        new Product(1, 'Laptop', 10, 750, 'Electronics'),
-        new Product(2, 'Smartphone', 20, 500, 'Electronics'),
-        new Product(3, 'Headphones', 15, 150, 'Accessories'),
-        new Product(4, 'Camera', 8, 900, 'Accessories'),
-        new Product(5, 'Smartwatch', 25, 200, 'Accessories')
+// Store store=new Store(
+//     1,
+//     'Tech Store',
+//     'Downtown',
+//     new List<Product>{
+//         new Product(1, 'Laptop', 10, 750, 'Electronics'),
+//         new Product(2, 'Smartphone', 20, 500, 'Electronics'),
+//         new Product(3, 'Headphones', 15, 150, 'Accessories'),
+//         new Product(4, 'Camera', 8, 900, 'Accessories'),
+//         new Product(5, 'Smartwatch', 25, 200, 'Accessories')
 
-    }
-);
+//     }
+// );
 
-System.debug('Store Details: ' + store);
-System.debug('Products in Store: ' + store.products);
-store.products.add(new Product(6, 'Tablet', 12, 300, 'Electronics'));
-System.debug('Updated Products in Store: ' + store.products);
-double revenue = store.sellProduct(2, 5);
-System.debug('Revenue from Sale: ' + revenue);
-System.debug('Products after Sale: ' + store.products);
-
-
-store.purchaseProduct(3, 10);
-System.debug('Products after Purchase: ' + store.products);
-
-double revenueAfterSecondSale = store.sellProduct(3, 24);
-System.debug('Revenue from Second Sale: ' + revenueAfterSecondSale);
-System.debug('Products after Second Sale: ' + store.products);
+// System.debug('Store Details: ' + store);
+// System.debug('Products in Store: ' + store.products);
+// store.products.add(new Product(6, 'Tablet', 12, 300, 'Electronics'));
+// System.debug('Updated Products in Store: ' + store.products);
+// double revenue = store.sellProduct(2, 5);
+// System.debug('Revenue from Sale: ' + revenue);
+// System.debug('Products after Sale: ' + store.products);
 
 
-List<Product> electronics = store.getProductsByCategory('Electronics');
-System.debug('Electronics Products: ' + electronics);
+// store.purchaseProduct(3, 10);
+// System.debug('Products after Purchase: ' + store.products);
+
+// double revenueAfterSecondSale = store.sellProduct(3, 24);
+// System.debug('Revenue from Second Sale: ' + revenueAfterSecondSale);
+// System.debug('Products after Second Sale: ' + store.products);
+
+
+// List<Product> electronics = store.getProductsByCategory('Electronics');
+// System.debug('Electronics Products: ' + electronics);
+
+
+
+
+BankAccount acc1=new BankAccount(1001,'Alice',5000,'Savings');
+BankAccount acc2=new BankAccount(1002,'Bob',3000,'Checking');
+
+
+List<BankAccount> accounts=new List<BankAccount>();
+accounts.add(acc1);
+accounts.add(acc2);
+// System.debug('Bank Accounts: '+accounts);
+Bank sbi=new Bank('State Bank of India', 'SBIN0001234',accounts);
+// System.debug('Bank Details: '+sbi);
+try {
+    // sbi.deposit(9999, 2000);
+    // sbi.withdraw(8888, 1000);
+    sbi.withdraw(1002, 5000);
+} catch (InvalidAccountException e) {
+    System.debug('Error: ' + e.getMessage());
+} catch (InsufficientBalanceException e) {
+    System.debug('Error: ' + e.getMessage());
+}
