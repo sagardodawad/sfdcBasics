@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Position records">
+            <table>
+                <thead>
+                    <tr>
+                    <th>Position Title</th>
+                    <th>Open date</th>
+                    <th>Close date</th>
+                    <th>Deparment</th>
+                    <th>location</th>       
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={openPositionList} for:item="pos">
+                    <tr key={pos.id}>
+                        <td>{pos.Name}</td>
+                        <td>{pos.Open_Date__c}</td>
+                        <td>{pos.Close_Date__c}</td>
+                        <td>{pos.Department__c}</td>
+                        <td>{pos.Location__c}</td>
+                    </tr>
+                    </template>
+                </tbody>
+            </table>
+      
+    </lightning-card>
+</template>
