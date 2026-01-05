@@ -1,0 +1,43 @@
+<template>
+
+    <lightning-card title="Parent To Child Communication">
+
+         <strong class="slds-align_absolute-center">Parent Component</strong>
+
+        <div class="slds-m-around_medium">
+
+            <!-- Add New Contact Form -->
+
+            <lightning-input label="Name" value={newName} onchange={handleNameChange}></lightning-input>
+
+            <lightning-input label="Email" value={newEmail} onchange={handleEmailChange}></lightning-input>
+
+            <lightning-button label="Add Contact" onclick={handleAddContact}></lightning-button>
+
+        </div>
+
+ 
+
+        <!-- Contact List Child Component -->
+
+        <div class="slds-m-around_medium">
+
+            <template if:true={contacts}>
+
+                <c-child-communication-component-new-version contactsinchild={contacts}>
+                    
+                </c-child-communication-component-new-version>
+
+            </template>
+
+            <template if:true={error}>
+
+                <p>{error}</p>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</template>
