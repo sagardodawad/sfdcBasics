@@ -1,0 +1,23 @@
+<template>
+
+    <lightning-card title="Simple Data Table">
+
+        <lightning-button label="Delete" onclick={deleteSelectedRow} slot="actions"></lightning-button>
+
+        <lightning-datatable
+
+            key-field="id"
+
+            data={accounts.data}
+
+            columns={Accountcolumns}
+
+            show-row-number-column="true"
+
+            onrowselection={handleRowSelection}
+
+            ></lightning-datatable>
+
+    </lightning-card>
+
+</template>
